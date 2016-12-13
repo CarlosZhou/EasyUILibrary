@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/theme/bootstrap/easyui.css">   
+		<link rel="stylesheet" type="text/css" href="css/theme/icon.css">   
+		<script type="text/javascript" src="js/jquery.min.js"></script> 
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>   	
+		<title>AdminSystem</title>
+		 
+
+ 
+		
+		
+		
+	</head>
+	
+	
+	
+	<body class="easyui-layout">   
+    <div data-options="region:'north',title:'North Title',split:true" style="height:100px;"></div>  
+    
+    
+    <div data-options="region:'south',title:'South Title',split:true" style="height:100px;"></div>   
+
+   
+   <div data-options="region:'east',iconCls:'icon-reload',title:'East',split:true" style="width:100px;"></div>   
+   
+   
+   
+   <div class="cc"   iconCls="icon-large-clipart" data-options="region:'west',title:'&amp;nbsp菜单',split:true,minWidth:200" style="width:100px;">
+ 
+ 
+ <!--菜单树-->
+ <ul id="tt" class="easyui-tree" data-options="animate:true" >   </ul>  
+
+   </div>   
+   
+   
+   
+   <div id="main_tab" class="easyui-tabs" data-options="region:'center'" style="padding:5px;background:#eee;">
+    
+
+   
+   </div>   
+</body>  
+
+<script type="text/javascript">
+		/*记载数数据 以后设置成态加载ajax*/
+	  $('#tt').tree({
+        data : [ {
+            "id" : 1,
+            "text" : "系统设置",
+            "iconCls" : "icon-save",
+            "children" : [  
+              {
+                "text" : "Books",
+                "iconCls" : "icon-save",
+                "state" : "open",
+                "attributes" : {
+                    "url" : "/demo/book/abc",
+                    "price" : 100
+                },
+                "children" : [ {
+                    "text" : "PhotoShop",
+                    "checked" : true
+                },{
+                    "text" : "PhotoShop",
+                    "checked" : true
+                },{
+                    "text" : "PhotoShop",
+                    "checked" : true
+                }, {
+                    "id" : 8,
+                    "text" : "Sub Bookds",
+                    "state" : "closed"
+                } ]
+            } ]
+        }, {
+            "text" : "Languages",
+            "state" : "closed",
+            "children" : [ {
+                "text" : "Java"
+            }, {
+                "text" : "C#"
+            } ]
+        } ]
+    });
+
+		 /*添加选项卡*/
+ $('#main_tab').tabs('add',{
+			title: '酒店图片',
+ 			closable: true
+		});	
+		
+	
+</script>
+ 
+</html>
