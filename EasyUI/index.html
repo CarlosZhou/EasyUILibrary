@@ -3,30 +3,51 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="css/theme/bootstrap/easyui.css">
+		 
+		
+		<link rel="stylesheet" type="text/css" href="css/theme/default/easyui.css">
 		<link rel="stylesheet" type="text/css" href="css/theme/icon.css">
-		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/default.css">
+		
+		<script type="text/javascript" src="js/common/jquery.min.js"></script>
 
-		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/common/jquery.easyui.min.js"></script>
+		<!--通用js-->
+	    <script type="text/javascript" src="js/common/common.js"></script>
+
+ 
 		<title>AdminSystem</title>
+<style> 
+body,html{font-family:'Microsoft YaHei','Hiragino Sans GB',Helvetica,Arial,'Lucida Grande',sans-serif;}
+</style>
+ 	</head> 
 
-	</head>
-
-	<body class="easyui-layout">
+	<body class="easyui-layout" style="overflow-y: hidden"  fit="true"   scroll="no">
+ 
+<div id="loading-mask" style="position:absolute;top:0px; left:0px; width:100%; height:100%; background:#D2E0F2; z-index:20000">
+<div id="pageloading" style="position:absolute; top:50%; left:50%; margin:-120px 0px 0px -120px; text-align:center;  border:2px solid #8DB2E3; width:200px; height:40px;  font-size:14px;padding:10px; font-weight:bold; background:#fff; color:#15428B;"> 
+    <img src="img/loading.gif" align="absmiddle" /> 正在加载中,请稍候...</div>
+</div>
+ 
+<!--头部-->
 		<div data-options="region:'north',title:'North Title',split:true" style="height:100px;"></div>
 
+<!--底部-->
 		<div data-options="region:'south',title:'South Title',split:true" style="height:100px;"></div>
 
+<!--东部-->
 		<div data-options="region:'east',iconCls:'icon-reload',title:'East',split:true" style="width:100px;"></div>
+<!--左侧菜单-->
+		<div region="west" split="true"  title="导航菜单" style="width:180px;" id="west">
 
-		<div class="cc" iconCls="icon-large-clipart" data-options="region:'west',title:'&amp;nbsp菜单',split:true,minWidth:200" style="width:100px;">
+			<div id="nav">
+						
+			</div>
 
-			<!--菜单树-->
-			<ul id="tt" class="easyui-tree" data-options="animate:true"> </ul>
-
+ 
 		</div>
-
-		<div id="main_tab" class="easyui-tabs" data-options="region:'center'" style="padding:5px;background:#eee;">
+<!--内容主体--> 
+		<div id="tabs" class="easyui-tabs" data-options="region:'center'" style="padding:5px;background:#eee;">
 
 		</div>
 
@@ -34,61 +55,15 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-	/*添加选项卡*/
-			$('#main_tab').tabs('add', {
-				title: 'New Tab',
-				content: 'Tab Body',
-				closable: true
-			});
-
-
-
-	/*记载数数据 以后设置成态加载ajax*/
-		$('#tt').tree({
-			data: [{
-				"id": 1,
-				"text": "系统设置",
-				"iconCls": "icon-save",
-				"children": [{
-					"text": "Books",
-					"iconCls": "icon-save",
-					"state": "open",
-					"attributes": {
-						"url": "/demo/book/abc",
-						"price": 100
-					},
-					"children": [{
-						"text": "PhotoShop",
-						"checked": true
-					}, {
-						"text": "PhotoShop",
-						"checked": true
-					}, {
-						"text": "PhotoShop",
-						"checked": true
-					}, {
-						"id": 8,
-						"text": "Sub Bookds",
-						"state": "closed"
-					}]
-				}]
-			}, {
-				"text": "Languages",
-				"state": "closed",
-				"children": [{
-					"text": "Java"
-				}, {
-					"text": "C#"
-				}]
-			}]
-		});
-
-
-
-
-		});
-
-	
+			/*初始化相关组件数据*/  
+			//COMMON.initMenuTree("服务器URL");
+			/*欢迎界面*/
+			COMMON.initWelcome();
+			initLeftMenu();
+			tabClose();
+			tabCloseEven();  
+		}); 
+				
 	</script>
 
 </html>
