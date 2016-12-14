@@ -39,7 +39,7 @@ var _menus = {
 		"menus": [{
 			"menuid": "12",
 			"menuname": "疯狂秀才",
-			"icon": "icon-add",
+			"icon": "icon-addd",
 			"url": "http://hxling.cnblogs.com",
 			"child": [{
 				"menuid": "140",
@@ -199,7 +199,7 @@ function initLeftMenu() {
         $.each(n.menus, function(j, o) {
         	
         	console.log(o.icon);
-			menulist += '<li><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><span class="icon '+o.icon+'" >&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
+			menulist += '<li><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><span class="icon-addd" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
 
 			if(o.child && o.child.length>0)
 			{
@@ -207,7 +207,7 @@ function initLeftMenu() {
 
 				menulist += '<ul class="third_ul">';
 				$.each(o.child,function(k,p){
-					menulist += '<li><div><a ref="'+p.menuid+'" href="#" rel="' + p.url + '" ><span class="icon '+p.icon+'" >&nbsp;</span><span class="nav">' + p.menuname + '</span></a></div> </li>'
+					menulist += '<li><div><a ref="'+p.menuid+'" href="#" rel="' + p.url + '" ><span class="icon " >&nbsp;</span><span class="nav">' + p.menuname + '</span></a></div> </li>'
 				});
 				menulist += '</ul>';
 			}
