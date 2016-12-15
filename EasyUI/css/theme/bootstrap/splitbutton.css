@@ -1,12 +1,1 @@
-.s-btn:hover .m-btn-line,
-.s-btn-active .m-btn-line,
-.s-btn-plain-active .m-btn-line {
-  display: inline-block;
-}
-.l-btn:hover .s-btn-downarrow,
-.s-btn-active .s-btn-downarrow,
-.s-btn-plain-active .s-btn-downarrow {
-  border-style: solid;
-  border-color: #bbb;
-  border-width: 0 0 0 1px;
-}
+意外错误。未能在撤销／重做时从本地历史记录复原文件内容。

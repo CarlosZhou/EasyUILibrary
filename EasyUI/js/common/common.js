@@ -17,7 +17,7 @@ var COMMON = {
 	},
 	initWelcome:function(){
 				/*添加欢迎页选项卡*/
-			$('#main-tab').tabs('add', {
+			$('#tabs').tabs('add', {
 				title: '欢迎使用',
 				href:'common-web/welcome.html', 
 				closable: false
@@ -38,8 +38,8 @@ var _menus = {
 		"menuname": "控件使用",
 		"menus": [{
 			"menuid": "12",
-			"menuname": "疯狂秀才",
-			"icon": "icon-addd",
+			"menuname": "新手上路",
+			"icon": "icon-add",
 			"url": "http://hxling.cnblogs.com",
 			"child": [{
 				"menuid": "140",
@@ -198,8 +198,8 @@ function initLeftMenu() {
 		menulist +='<ul class="navlist">';
         $.each(n.menus, function(j, o) {
         	
-        	console.log(o.icon);
-			menulist += '<li><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><span class="icon-addd" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
+        	//这里用的default.css中的引用 
+			menulist += '<li><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><span class="icon '+o.icon+'" >&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
 
 			if(o.child && o.child.length>0)
 			{
@@ -209,7 +209,7 @@ function initLeftMenu() {
 				$.each(o.child,function(k,p){
 					menulist += '<li><div><a ref="'+p.menuid+'" href="#" rel="' + p.url + '" ><span class="icon " >&nbsp;</span><span class="nav">' + p.menuname + '</span></a></div> </li>'
 				});
-				menulist += '</ul>';
+				menulist += '</ul>'; 
 			}
 
 			menulist+='</li>';
