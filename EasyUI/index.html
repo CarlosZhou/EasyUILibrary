@@ -5,12 +5,10 @@
 		<meta charset="utf-8" />
 		 
 		
-		<link rel="stylesheet" type="text/css" href="css/theme/default/easyui.css">
-		<link rel="stylesheet" type="text/css" href="css/theme/icon.css">
-		<link rel="stylesheet" type="text/css" href="css/default.css">
-		
+		<link rel="stylesheet" type="text/css" href="css/theme/gray/easyui.css">
+		<link rel="stylesheet" type="text/css" href="css/theme/gray/icon.css">
+		<link rel="stylesheet" type="text/css" href="css/default.css">	
 		<script type="text/javascript" src="js/common/jquery.min.js"></script>
-
 		<script type="text/javascript" src="js/common/jquery.easyui.min.js"></script>
 		<!--通用js-->
 	    <script type="text/javascript" src="js/common/common.js"></script>
@@ -22,16 +20,18 @@
 body,html{font-family:'Microsoft YaHei','Hiragino Sans GB',Helvetica,Arial,'Lucida Grande',sans-serif;}
 </style>
  	</head> 
-
-	<body class="easyui-layout" style="overflow-y: hidden"  fit="true"   scroll="no">
  
+	<body class="easyui-layout" style="overflow-y: hidden"  fit="true"   scroll="no">
+
 <div id="loading-mask" style="position:absolute;top:0px; left:0px; width:100%; height:100%; background:#D2E0F2; z-index:20000">
 <div id="pageloading" style="position:absolute; top:50%; left:50%; margin:-120px 0px 0px -120px; text-align:center;  border:2px solid #8DB2E3; width:200px; height:40px;  font-size:14px;padding:10px; font-weight:bold; background:#fff; color:#15428B;"> 
     <img src="img/loading.gif" align="absmiddle" /> 正在加载中,请稍候...</div>
 </div>
  
 <!--头部-->
-		<div data-options="region:'north',title:'North Title',split:true" style="height:100px;"></div>
+		<div data-options="region:'north',title:'North Title',split:true" style="height:100px;">
+ 
+		</div>
 
 <!--底部-->
 		<div data-options="region:'south',title:'South Title',split:true" style="height:100px;"></div>
@@ -56,6 +56,8 @@ body,html{font-family:'Microsoft YaHei','Hiragino Sans GB',Helvetica,Arial,'Luci
 
 	<script type="text/javascript">
 		$(document).ready(function() {
+			
+			 
 			/*初始化相关组件数据*/  
 			//COMMON.initMenuTree("服务器URL");
 			/*欢迎界面*/
@@ -63,6 +65,10 @@ body,html{font-family:'Microsoft YaHei','Hiragino Sans GB',Helvetica,Arial,'Luci
 			initLeftMenu();
 			tabClose();
 			tabCloseEven();  
+			
+			
+			
+			
 		}); 
 				
 	</script>

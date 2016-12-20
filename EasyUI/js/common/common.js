@@ -19,7 +19,7 @@ var COMMON = {
 				/*添加欢迎页选项卡*/
 			$('#tabs').tabs('add', {
 				title: '欢迎使用',
-				href:'common-web/welcome.html', 
+				href:'views/common-web/welcome.html', 
 				closable: false
 			});
 
@@ -38,12 +38,20 @@ function initLeftMenu() {
 	$("#nav").accordion({animate:true,fit:true,border:false});
 	var selectedPanelname = '';
     $.each(_menus.menus, function(i, n) {
+    	console.log("--------"+i+"--------"+n);
 		var menulist ='';
 		menulist +='<ul class="navlist">';
         $.each(n.menus, function(j, o) {
-        	
+        	console.log(j+"--------"+o);
         	//这里用的default.css中的引用 
-			menulist += '<li><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><span class="icon '+o.icon+'" >&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
+        	 if (j%2==0){     
+        	 				menulist += '<li class="odd"><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><span class="icon '+o.icon+'" >&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
+
+         	 }else{
+         					menulist += '<li class="even"><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><span class="icon '+o.icon+'" >&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
+
+             }
+   
 
 			if(o.child && o.child.length>0)
 			{
@@ -64,6 +72,7 @@ function initLeftMenu() {
             title: n.menuname,
             content: menulist,
 				border:false,
+		
             iconCls: 'icon ' + n.icon
         });
 
@@ -108,13 +117,6 @@ function initLeftMenu() {
 	});
 
 
-
-
-
-	//选中第一个
-	//var panels = $('#nav').accordion('panels');
-	//var t = panels[0].panel('options').title;
-    //$('#nav').accordion('select', t);
 }
 //获取左侧导航的图标
 function getIcon(menuid){
@@ -126,7 +128,7 @@ function getIcon(menuid){
 			}
 		 })
 	})
-	 console.log('hello');
+
 
 	return icon;
 }

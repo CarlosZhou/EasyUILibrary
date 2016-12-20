@@ -1,4 +1,4 @@
-/*菜单样例*/
+/*菜单样例数据*/
 var _menus = {
 	"menus": [{
 		"menuid": "1",
@@ -6,14 +6,14 @@ var _menus = {
 		"menuname": "控件使用",
 		"menus": [{
 			"menuid": "12",
-			"menuname": "新手上路",
+			"menuname": "系统管理",
 			"icon": "icon-add",
 			"url": "http://hxling.cnblogs.com",
 			"child": [{
 				"menuid": "140",
-				"menuname": "角色管理 3",
+				"menuname": "dataGrid",
 				"icon": "icon-role",
-				"url": "demo2.html"
+				"url": "views/baseDatagrid.html"
 			},
 			{
 				"menuid": "150",
@@ -155,3 +155,134 @@ var _menus = {
 	}]
 };
  
+/*表格样例数据*/
+
+var _datagrid={
+    "rows": [
+        {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+        {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+        },
+                {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },
+                 {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },        {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },        {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },        {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },        {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },        {
+            "code": 1,
+            "name": "name1",
+            "price": "name1"
+         },        {
+            "code": 1,
+            "name": "name1",
+            "price": "2222222222222"
+         },        {
+            "code": 1,
+            "name": "name1", 
+            "price": "2222222222222222222"
+         },
+         
+    ],
+    "total": 26
+}
