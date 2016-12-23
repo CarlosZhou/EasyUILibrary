@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+
+		<!--easyui相关-->
+		<link rel="stylesheet" type="text/css" href="../css/theme/gray/easyui.css">
+		<link rel="stylesheet" type="text/css" href="../css/theme/icon.css">
+		<link rel="stylesheet" type="text/css" href="../css/default.css">
+		<script type="text/javascript" src="../js/common/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/common/jquery.easyui.min.js"></script>
+
+		<!--通用js-->
+		<script type="text/javascript" src="../js/common/common.js"></script>
+		<script type="text/javascript" src="../js/common/sampledata.js"></script>
+
+		<title>AdminSystem</title>
+		<style>
+			body,
+			html {
+				font-family: 'Microsoft YaHei', 'Hiragino Sans GB', Helvetica, Arial, 'Lucida Grande', sans-serif;
+			}
+		</style>
+	</head>
+
+	<body class="easyui-layout" style="overflow-y: hidden" fit="true" scroll="no">
+
+		<div id="loading-mask" style="position:absolute;top:0px; left:0px; width:100%; height:100%; background:#D2E0F2; z-index:20000">
+			<div id="pageloading" style="position:absolute; top:50%; left:50%; margin:-120px 0px 0px -120px; text-align:center;  border:2px solid #8DB2E3; width:200px; height:40px;  font-size:14px;padding:10px; font-weight:bold; background:#fff; color:#15428B;">
+				<img src="img/loading.gif" align="absmiddle" /> 正在加载中,请稍候...</div>
+		</div>
+
+		<!--头部-->
+		<div id="head-style" data-options="region:'north',title:'',split:true" style="height:100px;margin: auto;">
+			
+		<span style="font-size: 50px;color: #F0F0F0;margin-top: 15px;margin-left:20px;display: inline-block;">Simple Admin</span>
+
+		<div style="float: right;margin-top: 70px;margin-right: 200px;position: relative;">
+			
+ 		<span style="font-size: 14px;color: #F0F0F0;display: inline-block;">时间：2015-09-12 下午 | </span>	
+		<span style="font-size: 14px;color: #F0F0F0;display: inline-block;">当前用户：<span style="font-size: 14px;">业务部经理</span></span>	
+		<span style="font-size: 14px;color: #F0F0F0;display: inline-block;text-decoration:underline;margin-left: 25px;">更换密码  |</span>	
+		<span style="font-size: 14px;color: #F0F0F0;display: inline-block;text-decoration:underline; ">退出登录 </span>	
+		</div>
+		
+		
+		
+		</div>
+
+		<!--底部-->
+		<div data-options="region:'south',title:'South Title',split:true" style="height:100px;"></div>
+
+		<!--东部-->
+		<div data-options="region:'east',iconCls:'icon-reload',title:'East',split:true" style="width:100px;"></div>
+		<!--左侧菜单-->
+		<div region="west" split="true" title="导航菜单" style="width:180px;" id="west">
+
+			<div id="nav">
+
+			</div>
+
+		</div>
+		<!--内容主体-->
+		<div id="tabs" class="easyui-tabs" data-options="region:'center'" style="padding:5px;background:#eee;">
+
+		</div>
+
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			/*初始化相关组件数据*/
+			//COMMON.initMenuTree("服务器URL");
+			/*欢迎界面*/
+			COMMON.initWelcome();
+			initLeftMenu();
+			tabClose();
+			tabCloseEven();
+
+		});
+	</script>
+
+</html>

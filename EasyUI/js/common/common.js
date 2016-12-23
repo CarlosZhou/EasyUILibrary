@@ -27,13 +27,19 @@ var COMMON = {
 	/*菜单点击事件*/
 	treeClick:function(node){
 	
+	},
+	/*datagrid 修改单条记录  操作*/
+	editSingleData:function(data){
+	 
+		alert(data.id +"---");
+	
 	}
  
    };
  
  
  
-//初始化左侧
+/*初始化左侧菜单*/
 function initLeftMenu() {
 	$("#nav").accordion({animate:true,fit:true,border:false});
 	var selectedPanelname = '';
@@ -45,10 +51,11 @@ function initLeftMenu() {
         	console.log(j+"--------"+o);
         	//这里用的default.css中的引用 
         	 if (j%2==0){     
-        	 				menulist += '<li class="odd"><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><span class="icon '+o.icon+'" >&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
+        	 	
+        	 				menulist += '<li class="odd"><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><img src="'+o.icon+'" style="width:20px; height:20px; display:inline-block;vertical-align:middle;">&nbsp;<span class="nav">' + o.menuname + '</span></a></div> ';
 
          	 }else{
-         					menulist += '<li class="even"><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><span class="icon '+o.icon+'" >&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
+        	 				menulist += '<li class="even"><div ><a ref="'+o.menuid+'" href="#" rel="' + o.url + '" ><img src="'+o.icon+'" style="width:20px; height:20px; display:inline-block;vertical-align:middle;">&nbsp;<span class="nav">' + o.menuname + '</span></a></div> ';
 
              }
    

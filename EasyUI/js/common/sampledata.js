@@ -3,11 +3,11 @@ var _menus = {
 	"menus": [{
 		"menuid": "1",
 		"icon": "icon-sys",
-		"menuname": "控件使用",
+		"menuname": "平台管理",
 		"menus": [{
 			"menuid": "12",
 			"menuname": "系统管理",
-			"icon": "icon-add",
+			"icon": "../img/CategorizeMenu.png",
 			"url": "http://hxling.cnblogs.com",
 			"child": [{
 				"menuid": "140",
@@ -30,7 +30,7 @@ var _menus = {
 			"child": [{
 				"menuid": "141",
 				"menuname": "角色管理 3",
-				"icon": "icon-role",
+				"icon": "../img/CategorizeMenu.png",
 				"url": "demo2.html"
 			},
 			{
@@ -65,16 +65,24 @@ var _menus = {
 			"url": "demo.html",
 			"child": [{
 				"menuid": "143",
-				"menuname": "角色管理 3",
+				"menuname": "用户管理",
 				"icon": "icon-role",
-				"url": "demo2.html"
+				"url": "views/platform-setting/privilege-setting/user-admin.html"
 			},
 			{
 				"menuid": "153",
-				"menuname": "权限设置 3",
+				"menuname": "角色管理",
 				"icon": "icon-set",
 				"url": "demo.html"
-			}]
+			},
+			{
+				"menuid": "153",
+				"menuname": "权限管理",
+				"icon": "icon-set",
+				"url": "demo.html"
+			}
+			
+			 ]
 		},
 		{
 			"menuid": "16",
@@ -156,7 +164,75 @@ var _menus = {
 };
  
 /*表格样例数据*/
-
+var _useradmin={
+    "rows": [
+        {
+        	"id":"1",
+            "exployee_name":"张三丰",
+            "exployee_number": "001",
+            "in_time": "2015-02-23",
+            "out_time":"2015-02-23",
+            "created":"2015-02-23",
+            "updated":"2015-02-23"
+            },
+        {   
+        	"id":"1",
+            "exployee_name":"张三丰",
+            "exployee_number": "001",
+            "in_time": "2015-02-23",
+            "out_time":"2015-02-23",
+            "created":"2015-02-23",
+            "updated":"2015-02-23"
+            },
+        {
+        	"id":"1",
+            "exployee_name":"张三丰",
+            "exployee_number": "001",
+            "in_time": "2015-02-23",
+            "out_time":"2015-02-23",
+            "created":"2015-02-23",
+            "updated":"2015-02-23"
+            },
+        {
+        	"id":"1",
+            "exployee_name":"张三丰ww",
+            "exployee_number": "001",
+            "in_time": "2015-02-23",
+            "out_time":"2015-02-23",
+            "created":"2015-02-23",
+            "updated":"2015-02-23"
+            },
+        {
+        	"id":"1",
+            "exployee_name":"张三丰",
+            "exployee_number": "001",
+            "in_time": "2015-02-23",
+            "out_time":"2015-02-23",
+            "created":"2015-02-23",
+            "updated":"2015-02-23"
+            },
+        {
+        	"id":"1",
+            "exployee_name":"张三丰",
+            "exployee_number": "001",
+            "in_time": "2015-02-23",
+            "out_time":"2015-02-23",
+            "created":"2015-02-23",
+            "updated":"2015-02-23"
+            },
+        {
+        	"id":"1",
+            "exployee_name":"张三丰",
+            "exployee_number": "001",
+            "in_time": "2015-02-23",
+            "out_time":"2015-02-23",
+            "created":"2015-02-23",
+            "updated":"2015-02-23"
+            }
+         
+    ],
+    "total": 7
+}
 var _datagrid={
     "rows": [
         {
@@ -169,11 +245,6 @@ var _datagrid={
             "name": "name1",
             "price": "name1"
         },
-                {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
                  {
             "code": 1,
             "name": "name1",
@@ -203,80 +274,6 @@ var _datagrid={
             "code": 1,
             "name": "name1",
             "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },
-                 {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },        {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },        {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },        {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },        {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },        {
-            "code": 1,
-            "name": "name1",
-            "price": "name1"
-         },        {
-            "code": 1,
-            "name": "name1",
-            "price": "2222222222222"
          },        {
             "code": 1,
             "name": "name1", 

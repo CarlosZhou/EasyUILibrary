@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+				<!--easyui相关-->
+		<link rel="stylesheet" type="text/css" href="../../../../css/theme/gray/easyui.css">
+		<link rel="stylesheet" type="text/css" href="../../../../css/theme/icon.css">
+		<link rel="stylesheet" type="text/css" href="../../../../css/default.css">
+		<script type="text/javascript" src="../../../../js/common/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../../js/common/jquery.easyui.min.js"></script>
+				<script type="text/javascript" src="../../../../js/common/sampledata.js"></script>
+				<script type="text/javascript" src="../../../../js/common/common.js"></script>
+		<title></title>
+	</head>
+	<body>
+		
+		<table id="dg"></table>
+		<div id="win"></div> 
+	</body>
+	<script>
+		$(document).ready(function() {
+			var	dg = $('#dg');
+			dg.datagrid({
+				data: _useradmin,
+				//datagrid会自动加上页码和条数
+				//http://127.0.0.1:8020/select/select.action?page=1&rows=10
+				url:'/select/select.action',
+				method:"GET",
+				toolbar: [{
+					iconCls: 'icon-add',
+					text: '添加',
+					handler: function() {
+						alert('Add')
+					}
+				}, '-', { //分隔符
+					iconCls: 'icon-edit',
+					text: '编辑',
+					handler: function() {						
+				    //COMMON.editSingleData(dg.datagrid('getSelected'));
+									
+					$('#win').window({    
+  						  width:600,    
+   						  height:400,    
+    					  modal:true,
+    					  href:"../../login.html"
+					}); 
+					//访问某网页
+					//$('#win').window('refresh', '../../login.html');
+					
+					}
+				}, '-', { 
+					iconCls: 'icon-remove',
+					text: '删除',
+					handler: function() {
+						alert('delete')
+					}
+				}, '-', {
+					iconCls: 'icon-search',
+					text: '查询',
+					handler: function() {
+						alert('search')
+					}
+				}],
+				striped: true,
+				loadMsg: '数据加载中,请稍候...',
+				nowrap: false,
+				pageSize: 10,
+				pageList: [10, 20, 30],
+				pagination: true,
+				fitColumns: true,
+				pagination: true, //分页
+				scrollbarSize: 20, //滚动条,		
+				singleSelect:true,
+				fit: true,
+ 				checkbox:true,
+				columns: [
+					[{ 
+						field: 'ck',
+ 						checkbox: true,
+ 						singleSelect:true
+					},
+					{
+						field: 'id',
+						title: 'id',
+						hidden:true,
+						width: 100,
+						align: 'center'
+					},{
+						field: 'exployee_name',
+						title: '员工姓名',
+						width: 100,
+						align: 'center'
+					}, {
+						field: 'exployee_number',
+						title: '员工工号',
+						width: 100,
+						align: 'center'
+					}, {
+						field: 'in_time',
+						title: '入职时间',
+						width: 100,
+						align: 'center'
+					}, {
+						field: 'out_time',
+						title: '离职时间',
+						width: 100,
+						align: 'center'
+					}, {
+						field: 'created',
+						title: '创建时间',
+						width: 100,
+						align: 'center'
+					}, {
+						field: 'updated',
+						title: '更新时间',
+						width: 100,
+						align: 'center'
+					}]
+				],
+				/*点击某行触发*/
+				onClickRow:function(index,row){
+					
+					//alert(index+"------"+JSON.stringify(row).toString());
+					
+					
+				}
+			});
+ 
+		});
+		
+		
+		
+	</script>
+</html>

@@ -24,7 +24,7 @@ a:hover{ color:Red; text-decoration:underline;}
 .odd{ background-color: #F0F0F0;border:1px solid #F0F0F0}
 .even{ background-color: #F5F5F5;border:1px solid #F0F0F0} 
 
-.navlist li a{line-height:24px;}
+.navlist li a{display:inline-block;height:24px;}
 .navlist li div{margin:0px 0px;padding-left:10px;padding-top:2px;}
 .navlist li div.hover{border:1px dashed #99BBE8; background:#E0ECFF;cursor:pointer;}
 .navlist li div.hover a{color:#416AA3;}
@@ -48,3 +48,8 @@ a:hover{ color:Red; text-decoration:underline;}
 .icon-magic{ background-position:0px -500px;}
 .icon-database{ background-position:-20px -140px;}
 .icon-arrow{ background:url('theme/icons/arrow.gif') no-repeat right;}
+
+ 
+
+/*首页头部样式*/
+#head-style{background-color: #4F94CD;}
