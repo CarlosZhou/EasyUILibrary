@@ -1,134 +1,143 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-				<!--easyui相关-->
+		<!--easyui相关-->
 		<link rel="stylesheet" type="text/css" href="../../../../css/theme/gray/easyui.css">
 		<link rel="stylesheet" type="text/css" href="../../../../css/theme/icon.css">
 		<link rel="stylesheet" type="text/css" href="../../../../css/default.css">
 		<script type="text/javascript" src="../../../../js/common/jquery.min.js"></script>
 		<script type="text/javascript" src="../../../../js/common/jquery.easyui.min.js"></script>
-				<script type="text/javascript" src="../../../../js/common/sampledata.js"></script>
-				<script type="text/javascript" src="../../../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../../../js/common/sampledata.js"></script>
+		<script type="text/javascript" src="../../../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../../../js/locale/easyui-lang-zh_CN.js"></script>
 		<title></title>
+		<script>
+		</script>
 	</head>
+
 	<body>
-		
-		<table id="dg"></table>
-		<div id="win"></div> 
+<!--fit: true,  //自适应布局	-->
+		<table class="easyui-datagrid" id="dgUser" title="商品列表" data-options="toolbar:toolbar,
+             		url:'../../../../exampledata/useradmin.json',
+					method:'GET',	 
+					striped: true,
+					loadMsg: '数据加载中,请稍候...',
+					pageSize: 10,
+					pageList: '[10, 20, 30]',
+					pagination: true,
+					fitColumns: true,
+ 					scrollbarSize: 20,	
+					singleSelect:true, 
+					fit: true, 
+ 				    checkbox:true">
+			<thead>
+				<tr>
+					<th data-options="field:'ck',checkbox:true,singleSelect:true"></th>
+					<th data-options="field:'id',width:60,hidden:true">用户ID</th>
+					<th data-options="field:'exployee_name',width:200">员工姓名</th>
+					<th data-options="field:'exployee_number',width:200">员工工号</th>
+					<th data-options="field:'exployee_password',width:200">员工密码</th>
+
+					<th data-options="field:'in_time',width:130,align:'center',formatter:COMMON.formatDateTime">入职时间</th>
+					<th data-options="field:'out_time',width:130,align:'center',formatter:COMMON.formatDateTime">离职时间</th>
+					<th data-options="field:'created',width:130,align:'center',formatter:COMMON.formatDateTime">创建日期</th>
+					<th data-options="field:'updated',width:130,align:'center',formatter:COMMON.formatDateTime">更新日期</th>
+				</tr>
+			</thead>
+		</table>
+
+		<div id="win-user"></div>
 	</body>
 	<script>
-		$(document).ready(function() {
-			var	dg = $('#dg');
-			dg.datagrid({
-				data: _useradmin,
-				//datagrid会自动加上页码和条数
-				//http://127.0.0.1:8020/select/select.action?page=1&rows=10
-				url:'/select/select.action',
-				method:"GET",
-				toolbar: [{
-					iconCls: 'icon-add',
-					text: '添加',
-					handler: function() {
-						alert('Add')
-					}
-				}, '-', { //分隔符
-					iconCls: 'icon-edit',
-					text: '编辑',
-					handler: function() {						
-				    //COMMON.editSingleData(dg.datagrid('getSelected'));
-									
-					$('#win').window({    
-  						  width:600,    
-   						  height:400,    
-    					  modal:true,
-    					  href:"../../login.html"
-					}); 
-					//访问某网页
-					//$('#win').window('refresh', '../../login.html');
-					
-					}
-				}, '-', { 
-					iconCls: 'icon-remove',
-					text: '删除',
-					handler: function() {
-						alert('delete')
-					}
-				}, '-', {
-					iconCls: 'icon-search',
-					text: '查询',
-					handler: function() {
-						alert('search')
-					}
-				}],
-				striped: true,
-				loadMsg: '数据加载中,请稍候...',
-				nowrap: false,
-				pageSize: 10,
-				pageList: [10, 20, 30],
-				pagination: true,
-				fitColumns: true,
-				pagination: true, //分页
-				scrollbarSize: 20, //滚动条,		
-				singleSelect:true,
-				fit: true,
- 				checkbox:true,
-				columns: [
-					[{ 
-						field: 'ck',
- 						checkbox: true,
- 						singleSelect:true
-					},
-					{
-						field: 'id',
-						title: 'id',
-						hidden:true,
-						width: 100,
-						align: 'center'
-					},{
-						field: 'exployee_name',
-						title: '员工姓名',
-						width: 100,
-						align: 'center'
-					}, {
-						field: 'exployee_number',
-						title: '员工工号',
-						width: 100,
-						align: 'center'
-					}, {
-						field: 'in_time',
-						title: '入职时间',
-						width: 100,
-						align: 'center'
-					}, {
-						field: 'out_time',
-						title: '离职时间',
-						width: 100,
-						align: 'center'
-					}, {
-						field: 'created',
-						title: '创建时间',
-						width: 100,
-						align: 'center'
-					}, {
-						field: 'updated',
-						title: '更新时间',
-						width: 100,
-						align: 'center'
-					}]
-				],
-				/*点击某行触发*/
-				onClickRow:function(index,row){
-					
-					//alert(index+"------"+JSON.stringify(row).toString());
-					
-					
-				}
-			});
+
  
-		});
-		
-		
-		
+		var toolbar = [{
+			iconCls: 'icon-add',
+			text: '添加',
+			handler: function() {
+
+				$('#win-user').window({
+
+					width: 400,
+					height: 500,
+					modal: true,
+					title: "创建员工",
+					href: "create-user.html"
+				});
+			}
+		}, '-', { //分隔符
+			iconCls: 'icon-edit',
+			text: '编辑',
+			handler: function() {
+				
+				if($("#dgUser").datagrid("getSelected")===null){
+			     	$.messager.alert('提示','请选择需要编辑的数据');
+        		     return ;
+				}
+ 
+				$('#win-user').window({
+					onLoad:function(){
+					 var dg = $("#dgUser");
+					 var data = dg.datagrid("getSelected");			 
+					 //数据回显
+					 $("#userEditForm").form("load",data);				 
+					},
+					width: 400,
+					height: 500,
+					modal: true,
+					title: "员工信息修改",
+					href: "edit-user.html"
+				});
+
+			}
+		}, '-', {
+			iconCls: 'icon-remove',
+			text: '删除',
+			handler: function() {
+				if($("#dgUser").datagrid("getSelected")===null){
+			     	$.messager.alert('提示','请选择需要删除的数据');
+        		     return ;
+				}
+				
+				deleteUser();
+				
+			} 
+		}, '-', {
+			iconCls: 'icon-search',
+			text: '查询',
+			handler: function() {
+				alert('search')
+			}
+		}];
+
+ 		//删除用户
+ 		function deleteUser(){
+ 			var dg = $("#dgUser");
+			var data = dg.datagrid("getSelected");	
+ 			$.messager.confirm('确认','确定删除?',function(r){
+ 				
+        	    if (r){
+        	    	var params = {"id":data.id};
+                	$.post("/rest/item/delete",params, function(data){
+                		
+            			if(data.status == 200){
+            				$.messager.alert('提示','删除成功!',undefined,function(){
+            					$("#win-user").datagrid("reload");
+            				});
+            			}else{
+            					$.messager.alert('提示','删除失败!',undefined,function(){
+             				});
+            			}
+            		});
+        	    }
+        	});
+  
+ 			
+ 		}
+ 	
+ 
 	</script>
+
 </html>

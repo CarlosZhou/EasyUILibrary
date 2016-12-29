@@ -1,0 +1,121 @@
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../../../../js/common/jquery.formHelp.js"></script>
+
+</head>
+<div style="margin:20px 0;"></div>
+<div style="width:230px;padding:30px 60px; ">
+	<form id="userEditForm" method="post">
+		<input type="hidden" name="id" />
+
+		<div style="margin-bottom:20px">
+			<span>姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+			<input class="easyui-textbox" type="text" data-options="required:true" name="exployee_name" exployee_name style="readonly:true;" />
+
+		</div>
+
+		<div style="margin-bottom:20px">
+			<span>员工工号 : </span>
+			<input class="easyui-textbox" type="text" name="exployee_number" style="" />
+		</div>
+		<div style="margin-bottom:20px">
+			<span>员工密码 : </span>
+			<input class="easyui-textbox" type="password" name="exployee_password" style="" />
+		</div>
+
+		<div style="margin-bottom:20px">
+			<span>入职时间 : </span>
+			<input class="easyui-datebox" name="in_time" type="text" style="" />
+		</div>
+
+		<div style="margin-bottom:20px">
+			<span>离职时间 : </span>
+			<input class="easyui-datebox" name="out_time" type="text" style="" />
+		</div>
+	
+	</form>
+<div style="margin-bottom:20px">选择对应角色 : </div>
+
+	<table class="easyui-datagrid" id="dgRole" data-options="checkbox:true,
+ 												 url:'../../../../exampledata/role.json',
+												 					method:'GET',	 
+					striped: true,
+					loadMsg: '数据加载中,请稍候...',
+ 					fitColumns: true,
+ 					scrollbarSize: 1,	
+					singleSelect:false 				 
+ 					" style="width:230px;height:100px"   >
+		<thead>
+			<tr>
+				<th data-options="field:'ck',checkbox:true,singleSelect:true"></th>
+				<th data-options="field:'id',hidden:true">ID</th>
+				<th data-options="field:'rolename',fitColumns:true,align:'center'" style="width: 200px;">角色名称</th>
+			</tr>
+		</thead>
+ 
+	</table>
+
+		<div style="margin:20px 0;">
+			<a href="#" class="easyui-linkbutton" style="width:100%;height:32px" onclick="submitForm()">确定</a>
+		</div>
+
+</div>
+<script>
+
+
+
+
+function submitForm() {
+
+		if(!$('#userEditForm').form('validate')) {
+			$.messager.alert('提示', '表单还未填写完成!');
+			return;
+		}
+	
+		if($("#dgRole").datagrid("getSelected")===null) {
+			$.messager.alert('提示', '至少选择一个角色!');
+			return;
+		}
+	
+	//用户数据 将表单序列化为json字符串
+	var data = $("#userEditForm").serializeJson();
+	
+	//用户角色数据 一个数组【】
+	var userRoles = [];
+	
+	//选中的角色数据
+	var selected =  $("#dgRole").datagrid("getSelections"); 	
+	
+	//讲角色数据添加到用户的json中
+	data.userRoles = selected;
+	
+	/*{"id":"","exployee_name":"777","exployee_number":"","exployee_password":"","in_time":"12/06/2016","out_time":"12/06/2016","userRoles":[{"id":"1","rolename":"超级管理员"},{"id":"1","rolename":"业务人员"},{"id":"1","rolename":"访客"},{"id":"1","rolename":"人力资源"},{"id":"1","rolename":"开发人员"},{"id":"1","rolename":"测试人员"}]}*/
+ 
+		//提交到后台的RESTful
+		$.ajax({
+			type: "POST",
+			url: "/rest/item",
+			dataType: 'json',
+			data: JSON.stringify(data),
+			statusCode: {
+				204: function() {
+					$.messager.alert('提示', '修改商品成功!', 'info', function() {
+						$("#itemEditWindow").window('close');
+						$("#itemList").datagrid("reload");
+					});
+
+				},
+				500: function() {
+					//窗口关闭 刷新数据
+					$("#win-user").window('close');
+					$("#dgUser").datagrid("reload");
+
+				},
+				400: function() {
+					$.messager.alert("提示", "400错误！")
+				}
+			}
+		});
+	}
+</script>
+  

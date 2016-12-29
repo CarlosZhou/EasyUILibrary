@@ -1,0 +1,78 @@
+ 
+	<head>
+		<meta charset="UTF-8">
+  
+	</head>
+	<div style="margin:20px 0;"></div>
+	<div  style="width:230px;padding:30px 60px; " >
+	<form id="userEditForm"  method="post">
+		<input type="hidden" name="id"/>
+		
+		<div style="margin-bottom:20px">
+			<span>姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+			<input class="easyui-textbox" type="text" data-options="required:true" name="exployee_name" exployee_name style="readonly:true;"/>
+	 
+		</div>
+ 
+		<div style="margin-bottom:20px">
+			<span>员工工号 : </span>
+			<input class="easyui-textbox" type="text" name="exployee_number" style="readonly:true;" disabled="true"/>	 
+		</div>
+	  <div style="margin-bottom:20px">
+		   <span>员工密码 : </span>
+			<input class="easyui-textbox" type="password" name="exployee_password" style="" />	 
+		</div>
+		
+		<div style="margin-bottom:20px">
+			<span>入职时间 : </span>
+			<input class="easyui-textbox" name="in_time" type="text" style="readonly:true;" disabled="true"/>	 
+		</div>
+		
+		<div style="margin-bottom:20px">
+			<span>离职时间 : </span>
+			<input class="easyui-textbox" name="out_time" type="text" style="readonly:true;" disabled="true"/>	 
+		</div>
+		<div style="margin:90px 0;">
+		<a href="#" class="easyui-linkbutton"    style="width:100%;height:32px" onclick="submitForm()">确定</a>
+		</div>
+		
+	</form>
+	
+	</div>
+ 	<script>
+  function submitForm(){
+  	
+		if(!$('#userEditForm').form('validate')){
+			$.messager.alert('提示','表单还未填写完成!');
+			return ;
+		}
+ 
+		//提交到后台的RESTful
+		$.ajax({
+		   type: "POST",
+		   url: "/rest/item",
+		   data: $("#userEditForm").serialize(),
+		   statusCode:{
+			   204:function(){
+				   $.messager.alert('提示','修改商品成功!','info',function(){
+						$("#itemEditWindow").window('close');
+						$("#itemList").datagrid("reload");
+					});
+
+			   },
+			   500:function(){
+			   	   //窗口关闭 刷新数据
+ 				   $("#win-user").window('close');
+				   $("#dgUser").datagrid("reload");
+				   
+			   },
+			   400:function(){
+					$.messager.alert("提示","400错误！")   
+				   }
+		   } 
+		});
+	}
+		
+	</script>
+ 
+ 

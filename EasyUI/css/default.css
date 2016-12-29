@@ -35,20 +35,7 @@ a:hover{ color:Red; text-decoration:underline;}
 .third_ul,ul { margin-left:0; padding-left:0px;margin-left: 10px; }
  .third_ul,li { margin-left:0; padding-left:10px; }
 .icon{ background:url(theme/icons/tabicons.png) no-repeat;width:18px; line-height:18px; display:inline-block;}
-.icon-sys{ background-position:0px -200px;}
-.icon-set{ background-position:-380px -200px;}
-.icon-add{background-position: -20px 0px;}
-.icon-users{background-position: -100px -480px;}
-.icon-nav{background-position: -100px -20px; } 
-.icon-role{background-position: -360px -200px;}
-.icon-set{background-position: -380px -200px;}
-.icon-log{background-position: -380px -80px;}
-.icon-delete{ background-position:-140px -120px;}
-.icon-edit{ background-position:-380px -320px;}
-.icon-magic{ background-position:0px -500px;}
-.icon-database{ background-position:-20px -140px;}
-.icon-arrow{ background:url('theme/icons/arrow.gif') no-repeat right;}
-
+ 
  
 
 /*首页头部样式*/
